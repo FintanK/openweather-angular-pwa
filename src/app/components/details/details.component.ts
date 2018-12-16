@@ -16,11 +16,6 @@ export class DetailsComponent implements OnInit {
   position: Position;
 
   constructor(private geolocationService: GeolocationService, private openWeatherService: OpenweatherService) {
-    this.weatherIconMappings = [];
-    this.weatherIconMappings['Clouds'] = { animatedIcon: 'cloudy'};
-    this.weatherIconMappings['Rain'] = { animatedIcon: 'rainy'};
-    this.weatherIconMappings['Snow'] = { animatedIcon: 'rainy'};
-    this.weatherIconMappings['Extreme'] = { animatedIcon: 'rainy'};
   }
 
   ngOnInit() {
@@ -30,17 +25,7 @@ export class DetailsComponent implements OnInit {
 
       this.openWeatherService.fetchFiveDayForecast( position, 'metric' ).subscribe(
         (foreCast) => {
-          this.locationName = foreCast.city.name;
           this.forecast = foreCast.list;
-
-          this.openWeatherService.fetchCurrentWeather( foreCast.city.name, foreCast.city.country, 'metric' ).subscribe(
-            (currentWeather) => {
-              this.currentWeather = currentWeather;
-            },
-            (error) => {
-              console.log( error );
-            }
-          );
 
         },
         (error) => {
