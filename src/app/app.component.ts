@@ -11,17 +11,8 @@ export class AppComponent implements OnInit {
 
   currentWeather: any;
   locationName: string;
-  weatherIconMappings: Array<any>;
 
   constructor(private geolocationService: GeolocationService, private openWeatherService: OpenweatherService) {
-
-
-    this.weatherIconMappings = [];
-    this.weatherIconMappings['Clouds'] = { animatedIcon: 'cloudy'};
-    this.weatherIconMappings['Rain'] = { animatedIcon: 'rainy'};
-    this.weatherIconMappings['Snow'] = { animatedIcon: 'rainy'};
-    this.weatherIconMappings['Extreme'] = { animatedIcon: 'rainy'};
-
   }
 
   ngOnInit() {

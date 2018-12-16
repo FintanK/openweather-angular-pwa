@@ -30,14 +30,12 @@ export class DetailsComponent implements OnInit {
 
       this.openWeatherService.fetchFiveDayForecast( position, 'metric' ).subscribe(
         (foreCast) => {
-          console.log( foreCast );
           this.locationName = foreCast.city.name;
           this.forecast = foreCast.list;
 
           this.openWeatherService.fetchCurrentWeather( foreCast.city.name, foreCast.city.country, 'metric' ).subscribe(
             (currentWeather) => {
               this.currentWeather = currentWeather;
-              console.log( currentWeather );
             },
             (error) => {
               console.log( error );
