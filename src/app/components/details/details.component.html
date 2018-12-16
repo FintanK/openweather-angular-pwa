@@ -1,3 +1,13 @@
-<p>
-  details works!
-</p>
+<section id="forecast" class="card">
+  <div class="card-body" style="color: #000">
+    <div class="row" *ngFor="let day of forecast">
+      <div class="col-7">
+        {{getDateFormatForTimestamp(day.dt_txt)}}
+      </div>
+      <div class="col-2">{{getTemperatureForDay(day)}} &#176;</div>
+      <div class="col-3">
+        <img class="forecast-icon" src="http://openweathermap.org/img/w/{{day.weather[0].icon}}.png" alt="">
+      </div>
+    </div>
+  </div>
+</section>

@@ -6,29 +6,25 @@ import { OpenweatherService } from './services/openweather.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DetailsComponent } from './components/details/details.component';
 import { RouterModule, Routes } from '@angular/router';
+import { OverviewComponent } from './components/overview/overview.component';
 
 const routes: Routes = [
   {
+    path: 'overview',
+    component: OverviewComponent
+  },
+  {
     path: 'details',
-    component: AppComponent,
-    children: [
-      {
-        path: 'details',
-        component: DetailsComponent
-      },
-      {
-        path: '',
-        redirectTo: 'details',
-        pathMatch: 'full'
-      }
-    ]
-  }
+    component: DetailsComponent
+  },
+  { path: '**', redirectTo: '/overview' }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    DetailsComponent
+    DetailsComponent,
+    OverviewComponent
   ],
   imports: [
     BrowserModule,

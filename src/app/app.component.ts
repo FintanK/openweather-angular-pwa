@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GeolocationService } from './services/geolocation.service';
 import { OpenweatherService } from './services/openweather.service';
-import * as momentNs from 'moment';
-
-
-const moment = momentNs;
 
 @Component( {
   selector: 'app-root',
@@ -15,9 +11,6 @@ export class AppComponent implements OnInit {
 
   currentWeather: any;
   locationName: string;
-  forecast: Array<any>;
-  position: Position;
-
   weatherIconMappings: Array<any>;
 
   constructor(private geolocationService: GeolocationService, private openWeatherService: OpenweatherService) {
@@ -41,7 +34,6 @@ export class AppComponent implements OnInit {
           console.log( foreCast );
           this.locationName = foreCast.city.name;
           this.forecast = foreCast.list;
-
 
           this.openWeatherService.fetchCurrentWeather( foreCast.city.name, foreCast.city.country, 'metric' ).subscribe(
             (currentWeather) => {
@@ -68,13 +60,5 @@ export class AppComponent implements OnInit {
 
   getOutlookDescription(): string {
     return this.currentWeather.weather[0].description.charAt(0).toUpperCase() + this.currentWeather.weather[0].description.slice(1)
-  }
-
-  getTemperatureForDay(day) {
-    return Math.floor(day.main.temp);
-  }
-
-  getDateFormatForTimestamp(timestamp) {
-    return moment(timestamp).calendar();
   }
 }
