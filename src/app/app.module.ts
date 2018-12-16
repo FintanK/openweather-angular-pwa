@@ -1,18 +1,44 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GeolocationService } from './services/geolocation.service';
+import { OpenweatherService } from './services/openweather.service';
+import { HttpClientModule } from '@angular/common/http';
+import { DetailsComponent } from './components/details/details.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {
+    path: 'details',
+    component: AppComponent,
+    children: [
+      {
+        path: 'details',
+        component: DetailsComponent
+      },
+      {
+        path: '',
+        redirectTo: 'details',
+        pathMatch: 'full'
+      }
+    ]
+  }
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    GeolocationService,
+    OpenweatherService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
