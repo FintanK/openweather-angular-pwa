@@ -1,11 +1,19 @@
 <section id="forecast" class="card">
   <div class="card-body" style="color: #000">
     <div class="row" *ngFor="let day of forecast">
-      <div class="col-7">
+      <div class="col-sm-12 col-md-6 col-lg-3">
+        <i class="fa fa-clock-o fs-2x"></i>
         {{getDateFormatForTimestamp(day.dt_txt)}}
       </div>
-      <div class="col-2">{{getTemperatureForDay(day)}} &#176;</div>
-      <div class="col-3">
+      <div class="col-sm-12 col-md-6 col-lg-3">
+        <i class="fa fa-flag fs-2x"></i>
+        Wind Speed: {{getWindSpeedForDay(day)}} Knots</div>
+      <div class="col-sm-12 col-md-6 col-lg-3">
+        <i class="fa fa-thermometer-empty fs-2x"></i>
+        Temperature: {{getTemperatureForDay(day)}} &#176;
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-3">
+        {{getOutlookDescriptionForDay(day)}}
         <img class="forecast-icon" src="http://openweathermap.org/img/w/{{day.weather[0].icon}}.png" alt="">
       </div>
     </div>

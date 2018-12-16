@@ -40,6 +40,14 @@ export class DetailsComponent implements OnInit {
     return Math.floor(day.main.temp);
   }
 
+  getOutlookDescriptionForDay(day) {
+    return day.weather[0].description.charAt(0).toUpperCase() + day.weather[0].description.slice(1);
+  }
+
+  getWindSpeedForDay(day) {
+    return Math.floor(day.wind.speed);
+  }
+
   getDateFormatForTimestamp(timestamp) {
     return moment(timestamp).calendar();
   }

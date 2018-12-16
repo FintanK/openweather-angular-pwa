@@ -14,7 +14,7 @@ const routes: Routes = [
     component: OverviewComponent
   },
   {
-    path: 'details',
+    path: 'forecast',
     component: DetailsComponent
   },
   { path: '**', redirectTo: '/overview' }

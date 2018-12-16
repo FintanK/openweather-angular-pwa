@@ -1,10 +1,9 @@
 <div class="container-fluid">
   <header *ngIf="currentWeather && currentWeather.main">
     <div class="row">
-      <div class="col-sm header">
-        <img id="currentWeatherIcon" src="http://openweathermap.org/img/w/{{fetchCurrentWeatherIconCode()}}.png" alt="">
+      <div class="col header">
         <h1>{{locationName}}</h1>
-        <span class="temp">{{currentWeather.main.temp}} &#176; | {{getOutlookDescription()}}</span>
+        <span class="temp">Temperature: {{currentWeather.main.temp}} &#176; | {{getOutlookDescription()}} <img id="currentWeatherIcon" src="http://openweathermap.org/img/w/{{fetchCurrentWeatherIconCode()}}.png" alt=""></span>
       </div>
     </div>
   </header>
