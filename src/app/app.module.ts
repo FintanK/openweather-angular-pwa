@@ -18,7 +18,7 @@ const routes: Routes = [
     component: OverviewComponent
   },
   {
-    path: 'forecast',
+    path: 'forecast/:timestamp',
     component: DetailsComponent
   },
   { path: '**', redirectTo: '/overview' }

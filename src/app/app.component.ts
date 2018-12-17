@@ -38,7 +38,6 @@ export class AppComponent implements OnInit {
               this.ngProgress.ref('progressBar').complete();
             }
           );
-
         },
         (error) => {
           console.log( error );

@@ -1,9 +1,15 @@
-<section class="card card-overview">
-  <div class="card-header">
-    Angular OpenWeather
-  </div>
-  <div class="card-body">
-    <p class="card-text">This simple application demonstrates the following Angular concepts..</p>
-    <a routerLink="/forecast" class="btn btn-primary">View 5 day forecast</a>
+<section id="outlook">
+  <div *ngFor="let interval of forecast">
+    <div class="row five-day-outlook" *ngIf="isMiddayInterval(interval)" (click)="navigateToWeekdayDetails(interval)">
+      <div class="col">
+        <img id="currentWeatherIcon" src="https://openweathermap.org/img/w/{{interval.weather[0].icon}}.png" alt="">
+      </div>
+      <div class="col">
+        {{getWeekDayForInterval(interval)}}
+      </div>
+      <div class="col"><i class="fa fa-thermometer-empty fs-2x"></i> {{interval.main.temp}} &#176;</div>
+      <div class="col"><i class="fa fa-wind fs-2x"></i> {{interval.wind.speed}}MPH</div>
+      <div class="col"><i class="fa fa-tint fs-2x"></i> {{interval.main.humidity}}%</div>
+    </div>
   </div>
 </section>
