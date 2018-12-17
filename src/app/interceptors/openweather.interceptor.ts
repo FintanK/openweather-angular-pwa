@@ -18,6 +18,6 @@ export class OpenWeatherInterceptor implements HttpInterceptor {
       return next.handle( modified );
     }
 
-    return next( req );
+    return next.handle( req );
   }
 }

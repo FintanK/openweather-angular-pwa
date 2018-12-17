@@ -9,6 +9,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { OverviewComponent } from './components/overview/overview.component';
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { OpenWeatherInterceptor } from './interceptors/openweather.interceptor';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const routes: Routes = [
   {
@@ -32,7 +34,8 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     NgProgressModule.forRoot(),
-    RouterModule.forRoot(routes, {useHash: true})
+    RouterModule.forRoot(routes, {useHash: true}),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     GeolocationService,
