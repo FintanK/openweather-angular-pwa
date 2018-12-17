@@ -1,27 +1,105 @@
-# OpenweatherAngularPwa
+# OpenWeather Angular PWA
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.3.
+This Angular 7 project was created to showcase the core concepts of the Angular framework along with progressive web app
+capabilities.
 
-## Development server
+It also produces are reusable NPM module along with NPM scripts for publishing that can be installed and imported into
+any other Angular project with minimal dependencies.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Components (Data Binding)
+- Services (Geolocation, OpenWeather API)
+- Resolvers
+- Pipes
+- Service Workers
+- Unit Tests
+- Protractor E2E Testing with Cucumber and out of the box steps.
 
-## Code scaffolding
+## Dependencies
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The only dependency for this project is Node.js (with NPM).
 
-## Build
+I used v10.5.0 for this project. Earlier versions may be fine.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+All other node modules for the NPM scripts in this project point 
+at the binaries under node_modules
 
-## Running unit tests
+I am running binaries locally within the project, as such I require 
+files path references to use the format for my operating system. In this case, Windows.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+If you are not using Windows you will need to run the following steps..
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Setting up your development environment
 
-## Further help
+### Operating systems other than Windows (Optional)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Run these commands in the root directory of your project via the CLI.
+
+```
+npm i -g @angular/cli@latest
+npm install
+ng build ngx-openweather
+ng serve
+```
+
+### Windows Operating Systems
+
+Simply run this command in the root directory of this project via the CLI.
+
+```
+npm start
+```
+
+### Accessing the application via your browser
+
+Once the project dependencies have been installed, the project built and
+the development server spun up, you will be able to access the application
+at 
+
+http://localhost:4200
+
+
+## Unit Tests
+
+```
+npm test
+```
+
+
+## E2E Integration / Behavioural Tests
+
+```
+npm run e2e
+```
+
+## Documentation
+
+#### Compodoc documentation
+
+```cmd
+npm run compodoc
+```
+
+[Click here to open the Compodoc html file for the documentation in this project](./documentation/index.html)
+
+#### Istanbul code coverage reporting.
+
+```cmd
+npm run compodoc
+```
+
+[Click here to view the Istanbul html file for the code coverage in this project](./coverage/index.html)
+
+
+#### Cucumber HTML Reports
+
+Run the following command with your application running on http://localhost:4200
+
+```cmd
+npm run e2e 
+```
+
+[Code coverage for this project](./reports/report/index.html)
+
+
+##
