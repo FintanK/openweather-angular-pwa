@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GeolocationService } from '../../services/geolocation.service';
 import { OpenweatherService } from '../../services/openweather.service';
 import * as momentNs from 'moment';
+import { NgProgress } from "@ngx-progressbar/core";
 
 const moment = momentNs;
 
@@ -15,13 +16,24 @@ export class DetailsComponent implements OnInit {
   forecast: Array<any>;
   position: Position;
 
-  constructor(private geolocationService: GeolocationService, private openWeatherService: OpenweatherService) {
+  /**
+   * Dependency Injection
+   * @param {GeolocationService} geolocationService
+   * @param {OpenweatherService} openWeatherService
+   * @param {NgProgress} ngProgress
+   */
+  constructor(
+    private geolocationService: GeolocationService,
+    private openWeatherService: OpenweatherService,
+    private ngProgress: NgProgress) {
   }
 
   ngOnInit() {
+
+    this.ngProgress.ref('progressBar').start();
+
     this.geolocationService.findMe().getCurrentPosition( (position: Position) => {
       this.position = position;
-      console.log( this.position );
 
       this.openWeatherService.fetchFiveDayForecast( position, 'metric' ).subscribe(
         (foreCast) => {
@@ -30,9 +42,9 @@ export class DetailsComponent implements OnInit {
         },
         (error) => {
           console.log( error );
+          this.ngProgress.ref('progressBar').complete();
         }
       );
-
     } );
   }
 

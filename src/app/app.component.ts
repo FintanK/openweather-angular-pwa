@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GeolocationService } from './services/geolocation.service';
 import { OpenweatherService } from './services/openweather.service';
+import { NgProgress } from "@ngx-progressbar/core";
 
 @Component( {
   selector: 'app-root',
@@ -12,10 +13,16 @@ export class AppComponent implements OnInit {
   currentWeather: any;
   locationName: string;
 
-  constructor(private geolocationService: GeolocationService, private openWeatherService: OpenweatherService) {
+  constructor(
+    private geolocationService: GeolocationService,
+    private openWeatherService: OpenweatherService,
+    private ngProgress: NgProgress) {
   }
 
   ngOnInit() {
+
+    this.ngProgress.ref('progressBar').start();
+
     this.geolocationService.findMe().getCurrentPosition( (position: Position) => {
       this.openWeatherService.fetchFiveDayForecast( position, 'metric' ).subscribe(
         (foreCast) => {
@@ -24,15 +31,18 @@ export class AppComponent implements OnInit {
           this.openWeatherService.fetchCurrentWeather( foreCast.city.name, foreCast.city.country, 'metric' ).subscribe(
             (currentWeather) => {
               this.currentWeather = currentWeather;
+              this.ngProgress.ref('progressBar').complete();
             },
             (error) => {
               console.log( error );
+              this.ngProgress.ref('progressBar').complete();
             }
           );
 
         },
         (error) => {
           console.log( error );
+          this.ngProgress.ref('progressBar').complete();
         }
       );
 

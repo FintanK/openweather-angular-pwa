@@ -9,6 +9,7 @@ any other Angular project with minimal dependencies.
 - Components (Data Binding)
 - Services (Geolocation, OpenWeather API)
 - Resolvers
+- Interceptors
 - Pipes
 - Service Workers
 - Unit Tests

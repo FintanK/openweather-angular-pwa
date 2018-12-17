@@ -7,6 +7,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { DetailsComponent } from './components/details/details.component';
 import { RouterModule, Routes } from '@angular/router';
 import { OverviewComponent } from './components/overview/overview.component';
+import { NgProgressModule } from '@ngx-progressbar/core';
 
 const routes: Routes = [
   {
@@ -24,11 +25,12 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     DetailsComponent,
-    OverviewComponent
+    OverviewComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    NgProgressModule.forRoot(),
     RouterModule.forRoot(routes, {useHash: true})
   ],
   providers: [
