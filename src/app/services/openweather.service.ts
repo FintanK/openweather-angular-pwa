@@ -12,11 +12,11 @@ export class OpenweatherService {
   }
 
   fetchCurrentWeather(cityName: string, countryCode: string, units: string): Observable<any> {
-    return this.http.get( environment.openWeatherAPI + `weather?q=${cityName},${countryCode}&units=${units}&APPID=${environment.openWeatherAPIKey}` );
+    return this.http.get( environment.openWeatherAPI + `weather?q=${cityName},${countryCode}&units=${units}` );
   }
 
   fetchFiveDayForecast(position: Position, units: string): Observable<any> {
-    return this.http.get( environment.openWeatherAPI + `forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=${units}&APPID=${environment.openWeatherAPIKey}` );
+    return this.http.get( environment.openWeatherAPI + `forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=${units}` );
   }
 
 }
