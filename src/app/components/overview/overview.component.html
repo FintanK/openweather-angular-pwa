@@ -1,15 +1,13 @@
 <section id="outlook">
   <div *ngFor="let interval of forecast">
     <div class="row five-day-outlook" *ngIf="isMiddayInterval(interval)" (click)="navigateToWeekdayDetails(interval)">
-      <div class="col">
+      <div class="col-sm-6 col-md-3">
         <img id="currentWeatherIcon" src="https://openweathermap.org/img/w/{{interval.weather[0].icon}}.png" alt="">
-      </div>
-      <div class="col">
         {{getWeekDayForInterval(interval)}}
       </div>
-      <div class="col"><i class="fa fa-thermometer-empty fs-2x"></i> {{interval.main.temp}} &#176;</div>
-      <div class="col"><i class="fa fa-wind fs-2x"></i> {{interval.wind.speed}}MPH</div>
-      <div class="col"><i class="fa fa-tint fs-2x"></i> {{interval.main.humidity}}%</div>
+      <div class="col-sm-6 col-md-3"><i class="fa fa-thermometer-empty fs-2x"></i> {{interval.main.temp}} &#176;</div>
+      <div class="col-sm-6 col-md-3"><i class="fa fa-wind fs-2x"></i> {{interval.wind.speed}}MPH</div>
+      <div class="col-sm-6 col-md-3"><i class="fa fa-tint fs-2x"></i> {{interval.main.humidity}}%</div>
     </div>
   </div>
 </section>
