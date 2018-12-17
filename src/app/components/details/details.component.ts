@@ -38,7 +38,7 @@ export class DetailsComponent implements OnInit {
       this.openWeatherService.fetchFiveDayForecast( position, 'metric' ).subscribe(
         (foreCast) => {
           this.forecast = foreCast.list;
-
+          this.ngProgress.ref('progressBar').complete();
         },
         (error) => {
           console.log( error );
