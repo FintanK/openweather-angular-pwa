@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { GeolocationService } from '../../services/geolocation.service';
-import { OpenweatherService } from '../../services/openweather.service';
+import { GeolocationService } from '../../../services/geolocation.service';
+import { OpenweatherService } from '../../../services/openweather.service';
 import { NgProgress } from '@ngx-progressbar/core';
 import * as momentNs from 'moment';
-import { ActivatedRoute } from "@angular/router";
 const moment = momentNs;
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-details',
@@ -57,30 +57,12 @@ export class DetailsComponent implements OnInit {
 
     forecast.forEach((interval) => {
 
-      console.log();
-
       if (moment(interval.dt_txt).format('dddd') === moment(this.timestamp).format('dddd')) {
         filteredForeCast.push(interval);
       }
     });
 
     return filteredForeCast;
-  }
-
-  getTemperatureForDay(day) {
-    return Math.floor(day.main.temp);
-  }
-
-  getOutlookDescriptionForDay(day) {
-    return day.weather[0].description.charAt(0).toUpperCase() + day.weather[0].description.slice(1);
-  }
-
-  getWindSpeedForDay(day) {
-    return Math.floor(day.wind.speed);
-  }
-
-  getDateFormatForTimestamp(timestamp) {
-    return moment(timestamp).calendar();
   }
 
 

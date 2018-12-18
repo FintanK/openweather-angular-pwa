@@ -8,9 +8,7 @@ any other Angular project with minimal dependencies.
 
 - Components (Data Binding)
 - Services (Geolocation, OpenWeather API)
-- Resolvers
 - Interceptors
-- Pipes
 - Service Workers
 - Unit Tests
 - Protractor E2E Testing with Cucumber and out of the box steps.
@@ -103,4 +101,17 @@ npm run e2e
 [Code coverage for this project](./reports/report/index.html)
 
 
-##
+## Things I would do with more time
+
+- More extensive use of the API
+- Move service calls into a routing resolver for each path and format the data as required
+- More PWA functionality with online / offline notifications
+- Splashscreen
+- Unit Test Coverage
+- 404 Not found page
+- Custom Types (Look for OpenWeatherAPI swagger json file)
+- Docker snapshot for quick deployments
+- Backend service to secure my API and consolidate more data for the client app.
+- Break out reusable components into a separate Angular library using "ng-packagr" and publish to NPm or internal registry.
+- Logging service that toggles depending on environment file.
+- Toggling of Metrics via the UI (Service is already set up to allow this).

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GeolocationService } from '../../services/geolocation.service';
-import { OpenweatherService } from '../../services/openweather.service';
+import { GeolocationService } from '../../../services/geolocation.service';
+import { OpenweatherService } from '../../../services/openweather.service';
 import { NgProgress } from '@ngx-progressbar/core';
 import * as momentNs from 'moment';
 import { Router } from "@angular/router";
