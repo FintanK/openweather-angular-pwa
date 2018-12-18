@@ -118,3 +118,4 @@ npm run e2e
 - Tider CSS
 - Palette color variables for LESS.
 - Animated SVG
+- Notifications for API failures.
