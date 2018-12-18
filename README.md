@@ -115,3 +115,6 @@ npm run e2e
 - Break out reusable components into a separate Angular library using "ng-packagr" and publish to NPm or internal registry.
 - Logging service that toggles depending on environment file.
 - Toggling of Metrics via the UI (Service is already set up to allow this).
+- Tider CSS
+- Palette color variables for LESS.
+- Animated SVG
